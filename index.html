@@ -150,7 +150,178 @@ case "tourl": {
 break;
             </code></pre>
         </div>
+                <h2>🌟 CASE TRX DONE</h2>
+        <span>CASE TRX DONE UNTUK FITUR TRX</span>
+        <p><strong>Created:</strong> 06-02-2025 | <strong>Code By:</strong> <a href="https://wa.me/6288215523477">Kenz Market</a></p>
+        
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode('code5')"><i class="fas fa-copy"></i></button>
+            <pre><code class="language-js" id="code5">
+case "trxdone": {
+    if (args.length < 3) return m.reply("❌ Format salah! Gunakan: .trxdone <namabarang> <harga> <jumlah barang>");
+    
+    const IDTRX = SNID1(10);
+    const harga = args[args.length - 1];
+    const jumlahBarang = args[args.length - 2];
+    const namaBarang = args.slice(0, -2).join(" ")
 
+    const tanggal = moment.tz("Asia/Jakarta").format("DD-MM-YYYY");
+    const waktu = moment.tz("Asia/Jakarta").format("HH:mm:ss");
+
+    const hasil = `✅ *Transaksi Berhasil!*\n
+  \`DETAIL TRANSAKSI\`  
+[📦] *Nama Barang :* ${namaBarang}
+[🛒] *Jumlah Barang :* ${jumlahBarang}
+[💸] *Harga Barang :* Rp${harga}
+
+[📅] *Tanggal :* ${tanggal}
+[⏰] *Waktu :* ${waktu}
+
+[📞] *No Admin :* wa.me/6288215523477
+[🌐] *Channel Admin :* https://whatsapp.com/channel/0029VazCs3v2Jl8Eyr1rSi0X`;
+
+    const fakestatus = {
+  key: {
+    fromMe: false,
+    participant: `0@s.whatsapp.net`,
+    ...(from ? { remoteJid: "status@broadcast" } : {})
+  },
+  message: {
+    conversation: "TRX DONE BY KENZ MARKET"
+  }
+};
+
+await kenz.sendMessage(from, {
+  text: hasil,
+contextInfo: {
+externalAdReply: {
+containsAutoReply: true,
+mediaType: 1,
+mediaUrl: '',
+renderLargerThumbnail: false,
+showAdAttribution: true,
+sourceUrl: 'https://api.kenzcode.biz.id',
+thumbnailUrl: 'https://pomf2.lain.la/f/8zjh4ohv.jpg',
+title: `KenzDev Market`,
+body: `KENZ MARKETPLACE`,
+footer: "KENZ WOY",
+},
+forwardingScore: 999,
+isForwarded: true,
+mentionedJid: [m.sender],
+businessMessageForwardInfo: {
+businessOwnerJid: `${NomorOwner}`
+},
+forwardedNewsletterMessageInfo: {
+newsletterJid: '120363376589165265@newsletter',
+serverMessageId: null,
+newsletterName: `KENZ MARKET REAL`
+}
+}
+}, { quoted: fakestatus });
+}
+break
+            </code></pre>
+        </div>
+        
+                <h2>🌟 CASE BIKIN PAYMENT</h2>
+        <span>CASE BIKIN PAYMENT OTOMATIS</span>
+        <p><strong>Created:</strong> 06-02-2025 | <strong>Code By:</strong> <a href="https://wa.me/6288215523477">Kenz Market</a></p>
+        
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode('code6')"><i class="fas fa-copy"></i></button>
+            <pre><code class="language-js" id="code6">
+case "bikinpayment": 
+case "cpayment": {
+          let load = await loading(m, "LOADING.")
+          setTimeout(async () => {
+            await load.edit("LOADING..")
+          },2000)
+          setTimeout(async () => {
+            await load.edit("LOADING...")
+          },4000)
+          setTimeout(async () => {
+            await load.edit("LOADING DONE✅")
+          },6000)
+          if (args.length < 3) return m.reply(`❌ Format salah Gunakan: .bikinpayment <noDana> <noGopay> <urlQris>`)
+          
+          const [noDana, noGopay, urlQris] = args;
+          setTimeout(async() => {
+          return kenz.sendMessage(from, { text: `BIKIN PAYMENT OTOMATIS SUDAH SELESAI SILAHKAN DIPAKAI\n\n\`DETAL PEMBAYARAN ${namepayment}\`\n\n*💰NOMOR DANA :* ${noDana}\n*💸NOMOR GOPAY :* ${noGopay}\n*💳QRIS ALL PAYMENT :* ${urlQris}\n\n> POWERED BY KENZMARKET`,
+          contextInfo: {
+            externalAdReply: {
+              forwardingScore: 999,
+              isForwarded: true,
+              showAdAttribution: true,
+              title: "Detal Pembayaran✅",
+              body: "© Powered By KenzMarket",
+              previewType: "IMAGE",
+              thumbnailUrl: "https://pomf2.lain.la/f/8zjh4ohv.jpg",
+              sourceUrl: "https://whatsapp.com/channel/0029VazCs3v2Jl8Eyr1rSi0X",
+              renderLargerThumbnail: false,
+              mediaType: 1
+            }
+          }
+        })
+          },7000)
+      }
+      break
+            </code></pre>
+        </div>
+        
+                <h2>🌟 CASE SHORTURL</h2>
+        <span>CASE SHORTURL PERPENDEK LINK</span>
+        <p><strong>Created:</strong> 06-02-2025 | <strong>Code By:</strong> <a href="https://wa.me/6288215523477">Kenz Market</a></p>
+        
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode('code7')"><i class="fas fa-copy"></i></button>
+            <pre><code class="language-js" id="code7">
+case "shortlink":
+case "shorturl": {
+if (!textt) return m.reply("https://xnxx.com")
+var res = await axios.get(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(textt)}`)
+var link = `
+* *Shortlink by tinyurl*
+${res.data.toString()}
+`
+await kenz.sendMessage(from, {text: link}, {quoted: m})
+}
+break
+            </code></pre>
+        </div>
+        
+                <h2>🌟 CASE ENC SCRIPT</h2>
+        <span>CASE ENC SCRIPT ENC KAN SCRIPT ANDA BIAR AMAN DARI ADMIN PANEL</span>
+        <p><strong>Created:</strong> 06-02-2025 | <strong>Code By:</strong> <a href="https://wa.me/6288215523477">Kenz Market</a></p>
+        
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode('code8')"><i class="fas fa-copy"></i></button>
+            <pre><code class="language-js" id="code8">
+case "enc": {
+    if (!textt) return m.reply("Masukkan kode JavaScript yang mau diobfuscate!")
+
+    try {
+        const JavaScriptObfuscator = require('javascript-obfuscator');
+        const obfuscatedCode = JavaScriptObfuscator.obfuscate(textt, {
+            compact: true,
+            controlFlowFlattening: true,
+            numbersToExpressions: true,
+            simplify: true,
+            stringArrayShuffle: true,
+            splitStrings: true,
+            stringArrayThreshold: 1
+        }).getObfuscatedCode();
+
+        m.reply(obfuscatedCode);
+    } catch (err) {
+        console.error(err);
+        m.reply("❌ Terjadi kesalahan saat mengobfuscate kode!");
+    }
+}
+break;
+            </code></pre>
+        </div>
+              
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
