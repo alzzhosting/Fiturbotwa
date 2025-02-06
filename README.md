@@ -3,7 +3,13 @@ Website sederhana untuk berbagi kode dengan tampilan yang simpel dan modern.
 
 ---
 
+<h1>FITUR CASE</h1>
+
 ## 🌟 **CASE TT SEARCH**
+<span>CASE TT SEARCH UNTUK ANDA</span>
+
+Created : 06-02-2025
+Code By : [Kenz Market](https://wa.me/6288215523477)
 ```js
 case 'tiktoksearch':
 case 'ttsearch': {
@@ -45,6 +51,10 @@ case 'ttsearch': {
 break;
 ```
 ### 🌟 **CASE AI**
+<span>CASE AI OTOMATIS</span>
+
+Created : 06-02-2025
+Code By : [Kenz Market](https://wa.me/6288215523477)
 ```js
 case 'ai': {
     if (!text) return m.reply('Masukkan pertanyaan!');
@@ -67,7 +77,11 @@ case 'ai': {
 }
 break;
 ```
-### **CASE TOURL**
+### 🌟 **CASE TOURL**
+<span>CASE TOURL TINYURL</span>
+
+Created : 06-02-2025
+Code By : [Kenz Market](https://wa.me/6288215523477)
 ```js
 case "tourl": {
     if (!m.quoted) return m.reply("Reply gambar atau video untuk diubah ke URL!");
@@ -90,7 +104,11 @@ case "tourl": {
 }
 break;
 ```
-### **CASE YTMP4**
+### 🌟 **CASE YTMP4**
+<span>CASE YTMP4 DOWNLOAD VIDEO YT</span>
+
+Created : 06-02-2025
+Code By : [Kenz Market](https://wa.me/6288215523477)
 ```js
 case "ytmp4": {
     if (!m.isGroup) {
@@ -133,4 +151,4 @@ case "ytmp4": {
 
 ---
 
-## **WEB INI DICIPTAKAN MENGGUNAKAN README.MD**
+## 🗿 **WEB INI DICIPTAKAN MENGGUNAKAN README.MD**
