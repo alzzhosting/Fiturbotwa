@@ -73,6 +73,84 @@ case 'ai': {
 break;
             </code></pre>
         </div>
+        
+                <h2>🌟 CASE YTMP4</h2>
+        <span>CASE YTMP4 UNTUK ANDA</span>
+        <p><strong>Created:</strong> 06-02-2025 | <strong>Code By:</strong> <a href="https://wa.me/6288215523477">Kenz Market</a></p>
+        
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode('code3')"><i class="fas fa-copy"></i></button>
+            <pre><code class="language-js" id="code3">
+case "ytmp4": {
+    if (!m.isGroup) {
+        if (!text) return m.reply('Masukkan URL YouTube!');
+        m.reply(mess.wait);
+
+        try {
+            let url = `https://api.ryzendesu.vip/api/downloader/ytmp4?url=${encodeURIComponent(text)}&quality=720p`;
+            let { data } = await axios.get(url);
+
+            if (!data || !data.result || !data.result.download_url) {
+                return m.reply("⚠️ Gagal mendapatkan video! Pastikan linknya benar atau coba lagi nanti.");
+            }
+
+            let teks = `
+*_🎬 Judul_*: ${data.result.title}
+*_⏳ Durasi_*: ${data.result.duration}
+*_📅 Upload_*: ${data.result.uploadDate}
+*_👀 Views_*: ${data.result.views}
+`;
+
+            await kenzdev.sendMessage(m.chat, {
+                video: { url: data.result.download_url },
+                mimetype: 'video/mp4',
+                fileName: `${data.result.title}.mp4`,
+                caption: teks
+            });
+
+        } catch (err) {
+            console.error(err);
+            m.reply("❌ Terjadi kesalahan, coba lagi nanti.");
+        }
+    } else {
+        m.reply("❌ Perintah ini hanya bisa digunakan di chat pribadi!");
+    }
+
+    break;
+}
+            </code></pre>
+        </div>
+
+        <h2>🌟 CASE TOURL</h2>
+        <span>CASE TOURL UNTUK ANDA</span>
+        <p><strong>Created:</strong> 06-02-2025 | <strong>Code By:</strong> <a href="https://wa.me/6288215523477">Kenz Market</a></p>
+        
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode('code4')"><i class="fas fa-copy"></i></button>
+            <pre><code class="language-js" id="code4">
+case "tourl": {
+    if (!m.quoted) return m.reply("Reply gambar atau video untuk diubah ke URL!");
+    let mime = m.quoted.mtype || "";
+    if (!/image|video/.test(mime)) return m.reply("Format tidak didukung! Hanya bisa gambar/video.");
+
+    let media = await m.quoted.download();
+    let form = new FormData();
+    form.append("file", media, { filename: "upload" });
+
+    let res = await axios.post("https://vapis.my.id/api/tinyurl?url=", form, {
+        headers: { ...form.getHeaders() }
+    });
+
+    if (res.data && res.data.result) {
+        m.reply(`✅ *Berhasil diubah ke URL:*\n${res.data.result}`);
+    } else {
+        m.reply("❌ Gagal membuat URL, coba lagi.");
+    }
+}
+break;
+            </code></pre>
+        </div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
