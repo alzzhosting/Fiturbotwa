@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Share Code</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Web Share Code</h1>
+        <p>Website sederhana untuk berbagi kode dengan tampilan yang simpel dan modern.</p>
+
+        <!-- CASE TT SEARCH -->
+        <h2>🌟 CASE TT SEARCH</h2>
+        <span>CASE TT SEARCH UNTUK ANDA</span>
+        <p><strong>Created:</strong> 06-02-2025 | <strong>Code By:</strong> <a href="https://wa.me/6288215523477">Kenz Market</a></p>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode('code1')"><i class="fas fa-copy"></i></button>
+            <pre><code class="language-js" id="code1">
+case 'tiktoksearch':
+case 'ttsearch': {
+    if (!text) return m.reply(`${prefix + command} jj epep`);
+    m.reply('Proses...');
+    try {
+        const axios = require('axios');
+        const { data } = await axios.get(`https://api.diioffc.web.id/api/search/tiktok?query=${text}`);
+        let result = data.result[Math.floor(Math.random() * data.result.length)];
+        await kenz.sendMessage(from, { 
+            video: { url: result.media.no_watermark }, 
+            mimetype: 'video/mp4', 
+            caption: result.title 
+        }, { quoted: m });
+        setTimeout(() => {
+            kenz.sendMessage(from, { 
+                audio: { url: result.media.audio }, 
+                mimetype: "audio/mpeg"
+            }, { quoted: m });
+        }, 3000);
+    } catch (err) {
+        m.reply('Error...');
+    }
+}
+break;
+            </code></pre>
+        </div>
+
+        <!-- CASE AI -->
+        <h2>🌟 CASE AI</h2>
+        <span>CASE AI OTOMATIS</span>
+        <p><strong>Created:</strong> 06-02-2025 | <strong>Code By:</strong> <a href="https://wa.me/6288215523477">Kenz Market</a></p>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode('code2')"><i class="fas fa-copy"></i></button>
+            <pre><code class="language-js" id="code2">
+case 'ai': {
+    if (!text) return m.reply('Masukkan pertanyaan!');
+    m.reply('Proses...');
+    try {
+        const axios = require('axios');
+        let senderName = pushname || "User";
+        const { data } = await axios.get(`https://api.vreden.web.id/api/mora?query=${encodeURIComponent(text)}&username=${encodeURIComponent(senderName)}`);
+        if (data.result) {
+            m.reply(data.result);
+        } else {
+            m.reply('Gagal mendapatkan jawaban.');
+        }
+    } catch (err) {
+        m.reply('Error...');
+    }
+}
+break;
+            </code></pre>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
