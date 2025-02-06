@@ -67,3 +67,70 @@ case 'ai': {
 }
 break;
 ```
+### **CASE TOURL**
+```js
+case "tourl": {
+    if (!m.quoted) return m.reply("Reply gambar atau video untuk diubah ke URL!");
+    let mime = m.quoted.mtype || "";
+    if (!/image|video/.test(mime)) return m.reply("Format tidak didukung! Hanya bisa gambar/video.");
+
+    let media = await m.quoted.download();
+    let form = new FormData();
+    form.append("file", media, { filename: "upload" });
+
+    let res = await axios.post("https://vapis.my.id/api/tinyurl?url=", form, {
+        headers: { ...form.getHeaders() }
+    });
+
+    if (res.data && res.data.result) {
+        m.reply(`✅ *Berhasil diubah ke URL:*\n${res.data.result}`);
+    } else {
+        m.reply("❌ Gagal membuat URL, coba lagi.");
+    }
+}
+break;
+```
+### **CASE YTMP4**
+```js
+case "ytmp4": {
+    if (!m.isGroup) {
+        if (!text) return m.reply('Masukkan URL YouTube!');
+        m.reply(mess.wait);
+
+        try {
+            let url = `https://api.ryzendesu.vip/api/downloader/ytmp4?url=${encodeURIComponent(text)}&quality=720p`;
+            let { data } = await axios.get(url);
+
+            if (!data || !data.result || !data.result.download_url) {
+                return m.reply("⚠️ Gagal mendapatkan video! Pastikan linknya benar atau coba lagi nanti.");
+            }
+
+            let teks = `
+*_🎬 Judul_*: ${data.result.title}
+*_⏳ Durasi_*: ${data.result.duration}
+*_📅 Upload_*: ${data.result.uploadDate}
+*_👀 Views_*: ${data.result.views}
+`;
+
+            await kenzdev.sendMessage(m.chat, {
+                video: { url: data.result.download_url },
+                mimetype: 'video/mp4',
+                fileName: `${data.result.title}.mp4`,
+                caption: teks
+            });
+
+        } catch (err) {
+            console.error(err);
+            m.reply("❌ Terjadi kesalahan, coba lagi nanti.");
+        }
+    } else {
+        m.reply("❌ Perintah ini hanya bisa digunakan di chat pribadi!");
+    }
+
+    break;
+}
+```
+
+---
+
+## **WEB INI DICIPTAKAN MENGGUNAKAN README.MD**
